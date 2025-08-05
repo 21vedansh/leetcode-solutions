@@ -1,0 +1,11 @@
+public class fibonacciNumber {
+    public static int fib(int n) {
+        if(n == 0 || n == 1) return n;   
+        if(n < 5) return n-1;   
+        return fib(n-1) + fib(n-2);
+    }
+    public static void main(String args[]) {
+        int n = 6;
+        System.out.println(fib(n));
+    }
+}
