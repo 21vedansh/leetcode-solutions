@@ -1,17 +1,26 @@
 public class twoSum {
     public static int[] calculateTwoSum(int nums[], int target) {
-        for(int i = 0; i < nums.length; i++) {
-            for(int j = i+1; j < nums.length; j++) {
-                if((nums[i] + nums[j]) == target) {
-                    return new int[] {i, j};
-                }
+        int left = 0, right = nums.length-1;
+        while(left < right) {
+            if(nums[left] + nums[right] == target) {
+                return new int[] {left, right};
+            }
+            if(nums[left] + nums[right] < target) {
+                left++;
+            } else {
+                right--;
             }
         }
         return new int[] {};
     }
     public static void main(String args[]) {
         int nums[] = {2, 7, 11, 15};
-        int target = 9;
-        System.out.println(calculateTwoSum(nums, target));
+        int target = 13;
+        int result[] = calculateTwoSum(nums, target);
+        if(result.length == 0) {
+            System.out.println("no solution exists");
+        } else {
+            System.out.println(result[0]+" "+result[1]);
+        }
     }
 }
